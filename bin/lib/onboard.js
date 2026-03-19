@@ -505,7 +505,10 @@ async function setupNim(sandboxName, gpu) {
       label: "Local LM Studio (localhost:1234) — running [experimental] (suggested)",
     });
   }
-
+  if (isNonInteractive() && requestedProvider && !options.some((o) => o.key === requestedProvider)) {
+    console.error(`  Requested provider '${requestedProvider}' is not available in this environment.`);
+    process.exit(1);
+  }
   // On macOS without Ollama, offer to install it
   if (!hasOllama && process.platform === "darwin") {
     options.push({ key: "install-ollama", label: "Install Ollama (macOS)" });
