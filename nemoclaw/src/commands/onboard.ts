@@ -161,7 +161,7 @@ function getDefaultOllamaModel(): string {
  * Fetches available models from LM Studio's OpenAI-compatible endpoint.
  * Requires the LM Studio local server to be running (default: http://localhost:1234)
  */
-export async function fetchLMStudioModels(endpointUrl: string = "http://localhost:1234"): Promise<string[]> {
+export async function fetchLMStudioModels(endpointUrl: string = "http://localhost:1234/v1"): Promise<string[]> {
   try {
     const response = await fetch(`${endpointUrl}/models`);
     if (!response.ok) {

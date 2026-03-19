@@ -526,7 +526,7 @@ async function setupNim(sandboxName, gpu) {
       const suggestions = [];
       if (vllmRunning) suggestions.push("vLLM");
       if (ollamaRunning) suggestions.push("Ollama");
-      if (lmstudioRunning) suggestions.push("LM Studio");
+      if (EXPERIMENTAL && lmstudioRunning) suggestions.push("LM Studio");
       if (suggestions.length > 0) {
         console.log(`  Detected local inference option${suggestions.length > 1 ? "s" : ""}: ${suggestions.join(", ")}`);
         console.log("  Select one explicitly to use it. Press Enter to keep the cloud default.");
