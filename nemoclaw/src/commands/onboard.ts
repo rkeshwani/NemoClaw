@@ -163,7 +163,7 @@ function getDefaultOllamaModel(): string {
  */
 export async function fetchLMStudioModels(endpointUrl: string = "http://localhost:1234"): Promise<string[]> {
   try {
-    const response = await fetch(`${endpointUrl}/v1/models`);
+    const response = await fetch(`${endpointUrl}/models`);
     if (!response.ok) {
       console.warn(`Failed to fetch LM Studio models. Status: ${response.status}`);
       return [];
